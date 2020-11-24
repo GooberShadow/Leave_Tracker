@@ -50,7 +50,14 @@ const getUsers = (req, res) => {
       {
         throw error
       }
+
+    response.setHeader("Access-Control-Allow-Origin", ["http://localhost:3000"]);
+    response.setHeader('Access-Control-Allow-Methods', "GET, POST, OPTIONS, PUT, PATCH, DELETE");
+    response.setHeader("Access-Control-Allow-Headers", "*");
+    response.setHeader("Access-Control-Allow-Credentials", "true");
+
       response.status(201).send(`User patched with ID: ${results.id}`)
+    
     })
   }
 
